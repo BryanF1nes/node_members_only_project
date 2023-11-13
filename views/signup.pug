@@ -1,0 +1,21 @@
+extends layout 
+
+block content
+
+    div
+        a(href="/") HOME
+        a(href="/signup") SIGNUP
+        a(href="/login") LOGIN 
+
+    form(method='POST')
+        label(for='firstname') Firstname:
+        input(type='text' id='firstname' name='firstname')
+        label(for='lastname') Lastname:
+        input(type='text' id='lastname' name='lastname')
+        label(for='email') Email:
+        input(type='emial' id='email' name='email')
+        label(for='username') Username:
+        input(type='text' id='username' name='username')
+        label(for='password') Password:
+        input(type='password' id='password' name='password')
+        button Submit
