@@ -41,3 +41,54 @@ a {
   color: white;
   cursor: pointer;
 }
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 10px 0;
+  width: 100%;
+}
+.post-form button {
+  padding: 10px;
+  max-width: 100px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+}
+textarea {
+  resize: none;
+  width: 50%;
+  height: 30px;
+  padding: 5px;
+}
+.post-form label {
+  font-size: 18px;
+  font-weight: bold;
+}
+.post-form input {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.post-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.post-list div {
+  border: 1px solid rgba(0,0,0,0.5);
+  border-left: 10px solid crimson;
+  padding: 10px;
+  width: 50%;
+  border-radius: 5px;
+}
+.post-list h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.post-list p {
+  font-size: 16px;
+}

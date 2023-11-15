@@ -9,10 +9,29 @@ block content
       a(href="/") HOME
       a(href="/signup") SIGNUP
       a(href="/login") LOGIN
-      a(href="/logout") LOG OUT 
+      a(href="/logout") LOG OUT
+
+    div
+      form(class="post-form" method="POST")
+        label(for="post") Post: 
+        textarea(name="post" required)
+        button Submit   
   else
     p Welcome to #{title}
       div
         a(href="/") HOME
         a(href="/signup") SIGNUP
         a(href="/login") LOGIN
+    div 
+      h3 Please <a href="/login"> log in </a> if you have an existing account.
+      h3 If not feel free to <a href="/signup">Sign up!</a>
+
+    
+  div(class="post-list")
+      each post in posts
+        div
+          if (user)
+            h3 #{post.author.username} -
+          else 
+            h3 Anonymous User -
+          p #{post.content}

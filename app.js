@@ -7,6 +7,7 @@ const passport = require('./config/passport');
 const connection = require('./config/database');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const User = require('./models/users');
 
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
@@ -30,6 +31,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch(err) {
+    done(err);
+  };
+});
 
 // routes
 app.use('/', indexRouter);
