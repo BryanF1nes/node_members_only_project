@@ -1,11 +1,10 @@
 require('dotenv').config();
 const createError = require('http-errors');
-const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
 const session = require("express-session");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const passport = require('./config/passport');
+const connection = require('./config/database');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -16,20 +15,14 @@ const loginRouter = require('./routes/login');
 const app = express();
 
 // mongoose connection
-mongoose.set('strictQuery', false);
-const mongoDB = process.env.URL;
-
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-  console.log(`Connection established to mongoose database!`)
-}
+connection;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
+// middleware
+app.use(session({ secret: process.env.SECRET, resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(logger('dev'));

@@ -12,3 +12,32 @@ a {
   color: #00B7FF;
   text-decoration: none;
 }
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.signup-form label {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+.signup-form input {
+  width: 400px;
+  padding: 5px;
+  font-size: 16px;
+}
+.signup-form input:invalid {
+  border: 2px solid crimson;
+  box-shadow: 0 0 3px 1px crimson;
+}
+.signup-form button {
+  padding: 10px;
+  max-width: 100px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+}
