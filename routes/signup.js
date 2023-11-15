@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
             date_created: new Date(),
         })
         const result = await user.save();
-        res.redirect('/');
+        res.redirect('/login');
     } catch (err) {
         return next(err);
     }

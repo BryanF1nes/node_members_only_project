@@ -2,9 +2,17 @@ extends layout
 
 block content
   h1= title
-  h3 Welcome #{user}
-  p Welcome to #{title}
-  div
-    a(href="/") HOME
-    a(href="/signup") SIGNUP
-    a(href="/login") LOGIN 
+  if (user)
+    h3 Welcome #{user.username}
+    p Welcome to #{title}
+    div
+      a(href="/") HOME
+      a(href="/signup") SIGNUP
+      a(href="/login") LOGIN
+      a(href="/logout") LOG OUT 
+  else
+    p Welcome to #{title}
+      div
+        a(href="/") HOME
+        a(href="/signup") SIGNUP
+        a(href="/login") LOGIN
