@@ -49,6 +49,13 @@ passport.deserializeUser(async (id, done) => {
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.get('/admin', async (req, res, next) => {
+  const user = await User.findOneAndUpdate().populate('username').exec();
+  user.admin = true;
+  const result = await user.save();
+  res.redirect('/');
+
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

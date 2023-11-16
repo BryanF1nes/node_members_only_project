@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 // GET sign up page
 router.get('/', (req, res, next) => {
-    res.render('signup')
+    res.render('signup', { title: 'Members Only Project | Sign-up' })
 });
 
 

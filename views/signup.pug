@@ -2,9 +2,9 @@ extends layout
 
 block content
 
-    div
+    h1 #{title}
+    div(class="links")
         a(href="/") HOME
-        a(href="/signup") SIGNUP
         a(href="/login") LOGIN 
 
     form(class="signup-form" method='POST')

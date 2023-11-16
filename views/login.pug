@@ -2,10 +2,10 @@ extends layout
 
 block content 
 
-    div
+    h1 #{title}
+    div(class="links")
         a(href="/") HOME
-        a(href="/signup") SIGNUP
-        a(href="/login") LOGIN   
+        a(href="/signup") SIGNUP 
 
     form(class="signup-form" action="/login" method="POST")
         label(for="username") Username: 

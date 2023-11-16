@@ -1,37 +1,41 @@
 extends layout
 
 block content
-  h1= title
-  if (user)
-    h3 Welcome #{user.username}
-    p Welcome to #{title}
-    div
-      a(href="/") HOME
-      a(href="/signup") SIGNUP
-      a(href="/login") LOGIN
-      a(href="/logout") LOG OUT
-
-    div
-      form(class="post-form" method="POST")
-        label(for="post") Post: 
-        textarea(name="post" required)
-        button Submit   
-  else
-    p Welcome to #{title}
-      div
+  div(class="nav")
+    h1 #{title}
+    if (user)
+      h3(class="banner") Welcome to #{title} - <span class="username">#{user.username}</span>
+      div(class="links")
         a(href="/") HOME
-        a(href="/signup") SIGNUP
-        a(href="/login") LOGIN
-    div 
-      h3 Please <a href="/login"> log in </a> if you have an existing account.
-      h3 If not feel free to <a href="/signup">Sign up!</a>
+        a(href="/logout") LOG OUT
 
-    
-  div(class="post-list")
-      each post in posts
-        div
-          if (user)
-            h3 #{post.author.username} -
-          else 
-            h3 Anonymous User -
-          p #{post.content}
+      div
+        form(class="post-form" method="POST")
+          label(for="post") Post: 
+          textarea(name="post" required)
+          button Submit   
+    else
+      h3(class="banner") Welcome to #{title}
+        div(class="links")
+          a(href="/") HOME
+          a(href="/signup") SIGNUP
+          a(href="/login") LOGIN
+      div 
+        h3 Please <a href="/login"> log in </a> if you have an existing account.
+        h3 If not feel free to <a href="/signup">Sign up!</a>
+
+      
+    div(class="post-list")
+      if posts.length === 0
+        h1 There are no posts to be shown...
+      else
+        each post in posts
+          div
+            if (user)
+              h3 #{post.author.username} -
+            else 
+              h3 Anonymous User -
+            p #{post.content}
+
+    if (user && admin.admin)
+      p You are an admin!

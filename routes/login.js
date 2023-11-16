@@ -5,7 +5,7 @@ const passport = require('../config/passport');
 
 // GET login page
 router.get('/', (req, res, next) => {
-    res.render('login');
+    res.render('login', { title: 'Members Only Project | Log-in' });
 })
 
 router.post('/', 
