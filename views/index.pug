@@ -6,20 +6,20 @@ block content
     if (user)
       h3(class="banner") Welcome to #{title} - <span class="username">#{user.username}</span>
       div(class="links")
-        a(href="/") HOME
-        a(href="/logout") LOG OUT
-
-      div
-        form(class="post-form" method="POST")
-          label(for="post") Post: 
-          textarea(name="post" required)
-          button Submit   
+        a(href="/") Home
+        a(href="/logout") Log Out
+      if (user && canPost)
+        div
+          form(class="post-form" method="POST")
+            label(for="post") Post: 
+            textarea(name="post" required)
+            button Submit   
     else
       h3(class="banner") Welcome to #{title}
         div(class="links")
-          a(href="/") HOME
-          a(href="/signup") SIGNUP
-          a(href="/login") LOGIN
+          a(href="/") Home
+          a(href="/signup") Sign Up
+          a(href="/login") Login
       div 
         h3 Please <a href="/login"> log in </a> if you have an existing account.
         h3 If not feel free to <a href="/signup">Sign up!</a>

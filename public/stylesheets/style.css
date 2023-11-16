@@ -30,6 +30,9 @@ a {
   justify-content: center;
   flex-direction: column;
 }
+.banner a {
+  font-size: 14px;
+}
 .links {
   display: flex;
   align-items: center;

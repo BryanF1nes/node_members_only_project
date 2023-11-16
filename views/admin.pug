@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    h1 #{title}
+    h3 #{success}
+    
+    a(href="/") Home
+
+    form(class="signup-form" method="POST")
+        label(for="admincode")
+        input(type="text" name="admincode")
+        button Send  

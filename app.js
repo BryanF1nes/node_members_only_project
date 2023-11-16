@@ -12,6 +12,8 @@ const User = require('./models/users');
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const secretPageRouter = require('./routes/secretPage');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -49,13 +51,8 @@ passport.deserializeUser(async (id, done) => {
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
-app.get('/admin', async (req, res, next) => {
-  const user = await User.findOneAndUpdate().populate('username').exec();
-  user.admin = true;
-  const result = await user.save();
-  res.redirect('/');
-
-})
+app.use('/secret', secretPageRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

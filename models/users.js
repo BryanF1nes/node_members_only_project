@@ -8,9 +8,10 @@ const UserSchema = new Schema({
     email: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
+    can_post: { type: Boolean, default: false },
     date_created: { type: Date },
     posts: [{ type: mongoose.Schema.Types.Array, ref: 'Post' }],
-    admin: { type: Boolean }
+    admin: { type: Boolean, default: false }
 })
 
 UserSchema.virtual('name').get(() => {
