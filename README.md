@@ -25,6 +25,6 @@ Create an .env file from .env-sample file
 Finally run the app
 `npm run serverstart`
 
-Go to [Local Host]("http://localhost:3000")
+Go to <http://localhost:3000>
 
 
