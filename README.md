@@ -14,16 +14,24 @@ I had planned on launching the site using Fly.io so anyone could access it witho
 If you wish to run the app go ahead and follow these steps.
 
 Clone the repo
-`git clone https://github.com/BryanF1nes/node_members_only_project.git`
+```bash
+git clone https://github.com/BryanF1nes/node_members_only_project.git
+```
 
 Install any dependicies
-`npm install`
+```bash
+npm install
+```
 
 Create an .env file from .env-sample file
-`cp .env.example .env`
+```bash
+cp .env.example .env
+```
 
 Finally run the app
-`npm run serverstart`
+```bash
+npm run serverstart
+```
 
 Go to <http://localhost:3000>
 
