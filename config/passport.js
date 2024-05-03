@@ -18,4 +18,3 @@ passport.use(new LocalStrategy(async (username, password, done) => {
 }));
 
 module.exports = passport;
-
